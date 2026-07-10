@@ -1,7 +1,14 @@
 #!/bin/bash
 
-source config/config.conf
-source scripts/logger.sh
+# Get project root directory
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Load configuration
+source "$PROJECT_DIR/config/config.conf"
+
+# Load logger
+source "$PROJECT_DIR/scripts/logger.sh"
+
 
 log_message INFO "Attempting to restart $SERVICE_NAME..."
 

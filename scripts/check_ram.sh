@@ -1,10 +1,13 @@
 #!/bin/bash
+# Get project root directory
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-#load configration
-source config/config.conf
+# Load configuration
+source "$PROJECT_DIR/config/config.conf"
 
-#load logger
-source scripts/logger.sh
+# Load logger
+source "$PROJECT_DIR/scripts/logger.sh"
+
 
 #get RAM usage percentage
 RAM_USAGE=$(free | awk '/Mem:/{printf "%.0f" , $3/$2 * 100}')

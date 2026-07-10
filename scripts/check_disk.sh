@@ -1,9 +1,13 @@
 #!/bin/bash
-#Load Configration
-source config/config.conf
+# Get project root directory
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-#Load logger
-source scripts/logger.sh
+# Load configuration
+source "$PROJECT_DIR/config/config.conf"
+
+# Load logger
+source "$PROJECT_DIR/scripts/logger.sh"
+
 
 #get disk usage of root fileSystem
 DISK_USAGE=$(df / | awk 'NR==2 {gsub("%",""); print $5}')

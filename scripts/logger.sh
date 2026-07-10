@@ -1,8 +1,10 @@
 #!/bin/bash
+# Get project root directory
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
-# load configration
+# Load configuration
+source "$PROJECT_DIR/config/config.conf"
 
-source config/config.conf
 
 log_message()
 {

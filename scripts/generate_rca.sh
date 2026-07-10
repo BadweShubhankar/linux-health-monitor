@@ -1,6 +1,11 @@
 #!/bin/bash
 
-source config/config.conf
+# Get project root directory
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Load configuration
+source "$PROJECT_DIR/config/config.conf"
+
 
 TIMESTAMP=$(date "+%Y-%m-%d_%H-%M-%S")
 

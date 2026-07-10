@@ -1,10 +1,13 @@
 #!/bin/bash
+# Get project root directory
+PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 # Load configuration
-source config/config.conf
+source "$PROJECT_DIR/config/config.conf"
 
 # Load logger
-source scripts/logger.sh
+source "$PROJECT_DIR/scripts/logger.sh"
+
 
 # Get CPU Idle percentage
 CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | cut -d'.' -f1)
