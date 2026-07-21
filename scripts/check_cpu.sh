@@ -10,7 +10,7 @@ source "$PROJECT_DIR/scripts/logger.sh"
 
 
 # Get CPU Idle percentage
-CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | cut -d'.' -f1)
+CPU_IDLE=$(top -bn1 | awk -F',' '/Cpu\(s\)/ {gsub(/[^0-9.]/,"",$4); print int($4)}')
 
 # Calculate CPU Usage
 CPU_USAGE=$((100 - CPU_IDLE))
